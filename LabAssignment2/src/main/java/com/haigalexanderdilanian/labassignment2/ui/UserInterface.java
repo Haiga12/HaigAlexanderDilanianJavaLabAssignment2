@@ -31,7 +31,7 @@ public class UserInterface { //Initializing everything that's needed.
             switch (Character.toUpperCase(choice)) {
                 case 'A' -> savingsMenu(); // Runs the savings menu and all of its functionalities.
                 case 'B' -> chequingMenu(); // Runs the chequing menu and all of its functionalities.
-                case 'C' -> System.out.println("Exiting program...");
+                case 'C' -> System.out.println("Exiting...");
                 default -> System.out.println("Error. Please input a valid letter.");
             }
         } while (Character.toUpperCase(choice) != 'C');
@@ -89,7 +89,7 @@ public class UserInterface { //Initializing everything that's needed.
                     System.out.println("Savings Account Report:");
                     System.out.println(savingsAccount.doMonthlyReport());
                 }
-                case 'D' -> System.out.println("Returning to Bank Menu...");
+                case 'D' -> System.out.println("Returning to main bank menu...");
                 default -> System.out.println("Error. Please input a valid letter.");
             }
         } while (Character.toUpperCase(choice) != 'D');
@@ -120,7 +120,7 @@ public class UserInterface { //Initializing everything that's needed.
                     System.out.println("Chequing Account Report:");
                     System.out.println(chequingAccount.doMonthlyReport());
                 }
-                case 'D' -> System.out.println("Returning to Bank Menu...");
+                case 'D' -> System.out.println("Returning to main bank menu...");
                 default -> System.out.println("Error. Please input a valid letter.");
             }
         } while (Character.toUpperCase(choice) != 'D');

@@ -9,11 +9,11 @@ import java.math.RoundingMode;
 public class SavingsAccount {
     private final Account savingsBean;
 
-    public SavingsAccount(BigDecimal balance, BigDecimal interestRate, Account savingsBean ) { // Constructor Method.
+    public SavingsAccount(BigDecimal balance, BigDecimal annualInterestRate, Account savingsBean ) { // Constructor Method.
         this.savingsBean = savingsBean;
         savingsBean.setStartingBalance(balance);
         savingsBean.setCurrentBalance(balance);
-        savingsBean.setAnnualInterestRate(interestRate);       
+        savingsBean.setAnnualInterestRate(annualInterestRate.add(new BigDecimal("0.05")));        
     }
     
     public void makeDeposit(BigDecimal deposit ) { // Method that permits you to deposit an amount of money in the Savings Account.
@@ -42,7 +42,9 @@ public class SavingsAccount {
 
     public void calculateInterest() { // Method that calculates monthly interest for the Savings Account.
         BigDecimal monthlyInterestRate = savingsBean.getAnnualInterestRate().divide(new BigDecimal("12"), RoundingMode.HALF_UP);
+        System.out.println("Monthly Interest Rate: " + monthlyInterestRate);
         BigDecimal monthlyInterest = savingsBean.getCurrentBalance().multiply(monthlyInterestRate).setScale(2, RoundingMode.HALF_UP);
+        System.out.println("TEST TO SEE IF WORKING!!!: " + monthlyInterest);
         savingsBean.setMonthInterestAmount(monthlyInterest);
         savingsBean.setCurrentBalance(savingsBean.getCurrentBalance().add(monthlyInterest));
     }

@@ -88,6 +88,7 @@ public class UserInterface { //Initializing everything that's needed.
                 case 'C' -> {
                     System.out.println("Savings Account Report:");
                     System.out.println(savingsAccount.doMonthlyReport());
+                    savingsAccount.monthlyReset();
                 }
                 case 'D' -> System.out.println("Returning to main bank menu...");
                 default -> System.out.println("Error. Please input a valid letter.");
@@ -105,6 +106,7 @@ public class UserInterface { //Initializing everything that's needed.
                     System.out.print("Enter deposit amount: ");
                     BigDecimal depositAmount = sc.nextBigDecimal();
                     chequingAccount.makeDeposit(depositAmount);
+                    System.out.print("Deposit successful. \n");
                 }
                 case 'B' -> {
                     System.out.print("Enter withdrawal amount: ");
@@ -119,6 +121,7 @@ public class UserInterface { //Initializing everything that's needed.
                 case 'C' -> {
                     System.out.println("Chequing Account Report:");
                     System.out.println(chequingAccount.doMonthlyReport());
+                    chequingAccount.monthlyReset();
                 }
                 case 'D' -> System.out.println("Returning to main bank menu...");
                 default -> System.out.println("Error. Please input a valid letter.");

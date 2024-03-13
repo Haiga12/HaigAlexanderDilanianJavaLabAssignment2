@@ -9,11 +9,11 @@ import java.math.RoundingMode;
 public class ChequingAccount {
     private final Account chequingBean;
     
-    public ChequingAccount(BigDecimal balance, BigDecimal interestRate, Account chequingBean ) { // Constructor Method.
+    public ChequingAccount(BigDecimal balance, BigDecimal annualInterestRate, Account chequingBean ) { // Constructor Method.
         this.chequingBean = chequingBean;
         chequingBean.setStartingBalance(balance);
         chequingBean.setCurrentBalance(balance);
-        chequingBean.setAnnualInterestRate(interestRate);
+        chequingBean.setAnnualInterestRate(annualInterestRate.add(new BigDecimal("0.05")));
         
     }
     
@@ -45,6 +45,7 @@ public class ChequingAccount {
     
     public Account doMonthlyReport() { // Method that writes the monthly report for the Chequing Account.
         chequingBean.setMonthServiceCharge(chequingBean.getMonthServiceCharge().add(new BigDecimal("5.00")));
+        chequingBean.setCurrentBalance(chequingBean.getCurrentBalance().subtract(new BigDecimal("5.00")));
         calculateInterest();
         return chequingBean;
     }

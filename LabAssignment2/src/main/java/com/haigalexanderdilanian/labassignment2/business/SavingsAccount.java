@@ -42,9 +42,7 @@ public class SavingsAccount {
 
     public void calculateInterest() { // Method that calculates monthly interest for the Savings Account.
         BigDecimal monthlyInterestRate = savingsBean.getAnnualInterestRate().divide(new BigDecimal("12"), RoundingMode.HALF_UP);
-        System.out.println("Monthly Interest Rate: " + monthlyInterestRate);
         BigDecimal monthlyInterest = savingsBean.getCurrentBalance().multiply(monthlyInterestRate).setScale(2, RoundingMode.HALF_UP);
-        System.out.println("TEST TO SEE IF WORKING!!!: " + monthlyInterest);
         savingsBean.setMonthInterestAmount(monthlyInterest);
         savingsBean.setCurrentBalance(savingsBean.getCurrentBalance().add(monthlyInterest));
     }
